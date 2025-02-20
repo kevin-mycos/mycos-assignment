@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi-Lo Game</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hi-Lo Game</h1>
+        
+        <div id="setupSection" class="setup-section">
+            <input type="number" id="initialAmount" placeholder="Initial amount" min="1">
+            <button onclick="setInitialAmount()">Start Game</button>
+        </div>
+
+        <div id="gameContent" style="display: none;">
+            <div class="balance-display">Current Balance: ฿<span id="currentBalance">0</span></div>
+
+            <div id="betControls" class="bet-section">
+                <div>
+                    Bet: <input type="number" id="betAmount" placeholder="Bet Amount" min="1" step="1" oninput="validateBet()">
+                </div>
+                <div class="betting-options">
+                    <button id="highBtn" onclick="playBet('high')">High (≥12)</button>
+                    <button id="midBtn" onclick="playBet('mid')">Mid (=11)</button>
+                    <button id="lowBtn" onclick="playBet('low')">Low (≤10)</button>
+                </div>
+            </div>
+
+            <div class="reset-section">
+                <button id="resetButton" class="reset" onclick="resetGame()" style="display: none;">Reset Game</button>
+            </div>
+
+            <div class="game-section">
+                <div class="dice-container">
+                    <div class="dice" id="dice1">?</div>
+                    <div class="dice" id="dice2">?</div>
+                    <div class="dice" id="dice3">?</div>
+                </div>
+                <h2 id="result"></h2>
+            </div>
+
+            <div id="status" class="status"></div>
+        </div>
+    </div>
+    <script src="hilo.js"></script>
+</body>
+</html>
